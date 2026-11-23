@@ -13,7 +13,7 @@ Usage:
 OPS.json is a list of operations, applied in order:
     {"op": "replace",     "old": "exact text", "new": "new text"}
     {"op": "set",         "anchor": "unique text in paragraph", "text": "whole new paragraph text"}
-    {"op": "set_two_part","anchor": "...", "left": "Company - Title", "right": "Jan 2020 - Present | City"}
+    {"op": "set_two_part","anchor": "...", "left": "Job Title - Company", "right": "City, Country | January 2020 - Present"}
     {"op": "clone_after", "anchor": "...", "text": "new paragraph with the same style (e.g. a bullet)"}
     {"op": "drop",        "anchor": "..."}
     {"op": "metadata",    "author": "First Last", "title": "First Last CV"}

@@ -23,6 +23,13 @@ A Claude skill that takes a candidate through a single job application, end to e
 10. Interview preparation, one-way video interviews and salary method
 11. Follow-up timing, reading signals and rejection replies
 
+### What's new in v1.1
+
+- Job headers follow the order most application systems expect: job title, company, city, dates, with months spelled out.
+- The pre-send check now flags characters that online forms reject (`< > [ ] " { } \`), abbreviated months, and letters outside basic Latin.
+- New guidance for online application forms: checking parsed fields after upload, character errors and salary formats.
+- The CV template uses the new job header format.
+
 ### Principles
 
 - Nothing goes into a CV, letter or answer that the candidate does not have.
@@ -148,6 +155,13 @@ Bir adayı tek bir iş başvurusunda baştan sona yönlendiren bir Claude skill'
 9. İK uzmanına ve eski çalışma arkadaşlarına mesajlar
 10. Mülakat hazırlığı, tek yönlü video mülakatlar ve maaş beklentisi yöntemi
 11. Takip zamanlaması, sinyalleri okuma ve ret maillerine cevap
+
+### v1.1'de neler değişti
+
+- İş başlıkları, başvuru sistemlerinin çoğunun beklediği sırayla yazılıyor: unvan, şirket, şehir, tarih; aylar kısaltılmadan.
+- Gönderim öncesi kontrol artık online formların reddettiği karakterleri (`< > [ ] " { } \`), kısaltılmış ayları ve Latin alfabesi dışındaki harfleri de buluyor.
+- Online başvuru formları için yeni yönergeler: yüklemeden sonra alanların doğru okunduğunu kontrol etmek, karakter hataları ve maaş yazımı.
+- CV şablonu yeni iş başlığı biçimiyle güncellendi.
 
 ### İlkeler
 

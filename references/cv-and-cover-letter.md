@@ -8,7 +8,7 @@
 3. **Target line**: the role title from the posting plus two or three specialisms it asks for, in its wording, where true.
 4. **Summary**: three to five sentences. Who the candidate is and for how long, the scale handled, two or three results with numbers, the posting's key skills where true.
 5. **Core competencies**: 12 to 20 short items separated by bullets. Mirror the posting's terms that are true. Order by relevance to this posting.
-6. **Experience**, most recent first. Job header: company and title on the left in bold, dates and location on the right. Three to eight bullets for recent roles, one line for roles older than about 15 years.
+6. **Experience**, most recent first. Job header in this order, which many application systems expect: job title and company on the left in bold, then city, country and dates on the right, for example `Operations Manager – Example Industries Inc.        Lyon, France | April 2018 – June 2023`. Keep each header on one line (reduce its font size slightly if needed). Three to eight bullets for recent roles, one line for roles older than about 15 years.
 7. Education, certifications, technical skills, languages, an optional "Additional" line.
 
 ### Bullets
@@ -33,8 +33,16 @@ Use the real title. If it undersells or oversells the job, keep it and let the b
 - Standard section names (Experience, Education, Skills).
 - Contact details in the body, not the header or footer.
 - Plain bullet characters; no box-drawing or private-use symbols.
-- Dates in one consistent format.
+- Dates in one consistent format, with months spelled out ("February 2024", not "Feb 2024" or "02/24").
+- A city in every job header, not only the country.
+- No characters that online application forms reject: `< > [ ] " { } \`. Write ">99%" as "over 99%", use single quotes instead of double quotes, and remove any leftover `[placeholders]`.
+- Letters outside the document's alphabet (for example ş, ü, ł in an English CV) are read correctly by most modern systems. If the document language does not use them, or a portal shows them garbled after upload, offer the user plain spellings for company and place names (Izmir for İzmir, Gdansk for Gdańsk). Keep the candidate's legal name as on their ID and profiles, and apply the document language's capitalisation rules (an English CV writes DEMIR for the surname Demir, not the Turkish capital form DEMİR). The user decides.
 - Send PDF unless the system asks for Word; export with Word's own "Save as PDF".
+
+### Online application forms
+- Many portals parse the uploaded CV into fields (job title, company, location, dates). After uploading, ask the user to check every field and fix wrong splits by hand; a career break or freelance entry is the most common misread.
+- Text pasted into form fields follows the same character rules as the CV. An "illegal characters" error almost always means one of `< > [ ] " { } \`.
+- Salary fields: write the currency and the number in the target country's format (`£110,000`, not `£110.000`), say whether it is base or total, and add one sentence that keeps the range open.
 
 ## Cover letter
 

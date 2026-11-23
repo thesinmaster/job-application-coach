@@ -8,7 +8,9 @@ Reports four things:
   2. Metadata        - author, title, company, template name, custom properties
                        (CV services often leave tracking IDs here).
   3. ATS structure   - tables, text boxes, images, contact details in headers
-                       or footers, odd characters some parsers mangle.
+                       or footers, odd characters some parsers mangle,
+                       characters online application forms reject, abbreviated
+                       months, and letters outside basic Latin.
   4. Writing signals - stock phrases and patterns that make text read as
                        generic or machine-written. These are prompts for a
                        human rewrite, not proof of anything.
@@ -38,6 +40,10 @@ CONTRAST_PATTERNS = [
 ]
 INVISIBLE = {'​', '‌', '‍', '⁠', '﻿', '­'}
 ODD_FOR_ATS = {'│': 'box-drawing bar', '—': 'em dash', '': 'private-use bullet'}
+# Characters that online application forms (Workday and others) reject in text fields
+FORM_REJECTED = ['<', '>', '[', ']', '"', '{', '}', '\\', '\u201c', '\u201d']
+MONTH_ABBR = (r'\b(?:Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\.?\s+(?:19|20)\d\d\b'
+              r'|\b(?:0?[1-9]|1[0-2])/(?:19|20)?\d\d\b')
 
 
 def check(path):
@@ -107,6 +113,21 @@ def check(path):
     for ch, label in ODD_FOR_ATS.items():
         if ch in text:
             warns.append(f'{label} ({text.count(ch)}x): replace with a plain character')
+    bad = [(c, text.count(c)) for c in FORM_REJECTED if c in text]
+    if bad:
+        warns.append('characters online application forms often reject: '
+                     + ', '.join(f'{c} ({n}x)' for c, n in bad)
+                     + ' -> write ">99%" as "over 99%"; use single quotes; remove [placeholders]')
+    months = sorted(set(re.findall(MONTH_ABBR, text)))
+    if months:
+        warns.append('abbreviated or numeric months: ' + ', '.join(months)[:150]
+                     + ' -> spell months out, e.g. "February 2024"')
+    extra = sorted({c for c in text if c.isalpha() and ord(c) > 127})
+    if extra:
+        warns.append('letters outside basic Latin: ' + ' '.join(extra)
+                     + ' -> usually fine; if the document language does not use them or a portal'
+                     ' shows them garbled, offer plain spellings for company and place names'
+                     " (keep the candidate's legal name; apply the document language's capitalisation)")
 
     # ---- 4. writing signals
     low = text.lower()

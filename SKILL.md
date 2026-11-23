@@ -68,7 +68,7 @@ For each gap that matters to the posting, choose one of:
 
 Produce both and let the user choose:
 - **Version A - the candidate's own file**, edited in place so its layout survives. Use `scripts/docx_tools.py` (`--dump` to see paragraphs, then a JSON list of edits). If the candidate only has a PDF, say Version A cannot be edited in place and offer only Version B, or rebuild their layout in Word if they ask.
-- **Version B - the template** in `assets/cv-template.docx`: a single-column, ATS-safe layout made by a professional CV consultant. Fill it with `scripts/docx_tools.py`: `set` for text, `set_two_part` for job headers (bold company and title on the left, dates on the right), `clone_after` for extra bullets, `drop` for unused lines. To add a job, clone a job header after the last bullet of the previous job, then clone bullets after it.
+- **Version B - the template** in `assets/cv-template.docx`: a single-column, ATS-safe layout made by a professional CV consultant. Fill it with `scripts/docx_tools.py`: `set` for text, `set_two_part` for job headers (bold job title and company on the left; city, country and dates on the right), `clone_after` for extra bullets, `drop` for unused lines. To add a job, clone a job header after the last bullet of the previous job, then clone bullets after it.
 
 Writing rules are in `references/cv-and-cover-letter.md`. Before finishing, run:
 
@@ -94,7 +94,7 @@ Run on every file before it is sent:
 python scripts/docx_check.py cv.docx cover_letter.docx
 ```
 
-It reports hidden or white text, watermarks, comments, tracked changes, invisible characters, metadata (author, title, template names and the tracking IDs CV services leave in custom properties), ATS problems (tables, text boxes, contact details in headers) and stock phrases or contrast patterns that make writing sound generic. Fix every hidden-content and metadata finding. Treat writing signals as prompts: rewrite in the candidate's words, do not just swap synonyms. Then tell the user to export the PDF with Word's own "Save as PDF", not an online converter, and to read the letter aloud once.
+It reports hidden or white text, watermarks, comments, tracked changes, invisible characters, metadata (author, title, template names and the tracking IDs CV services leave in custom properties), ATS problems (tables, text boxes, contact details in headers, characters online forms reject, abbreviated months, letters outside basic Latin) and stock phrases or contrast patterns that make writing sound generic. Fix every hidden-content and metadata finding. Treat writing signals as prompts: rewrite in the candidate's words, do not just swap synonyms. Then tell the user to export the PDF with Word's own "Save as PDF", not an online converter, and to read the letter aloud once. After they upload to a portal, ask them to check that the parsed fields (title, company, location, dates) landed correctly and that no characters appear garbled; see "Online application forms" in `references/cv-and-cover-letter.md`.
 
 ### Stage 8 - User review
 
